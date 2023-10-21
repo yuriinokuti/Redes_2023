@@ -2,6 +2,24 @@
 <html>
 <head>
     <title>Informações Dinâmicas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .info-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+        .info-item {
+            margin-bottom: 15px;
+        }
+    </style>
     <script type="text/javascript">
         function obterInformacoesDinamicas() {
             var xmlhttp = new XMLHttpRequest();
@@ -11,21 +29,21 @@
                     document.getElementById("ip").innerHTML = "IP: " + dados.ip;
                     document.getElementById("data").innerHTML = "Data: " + dados.data;
                     document.getElementById("hora").innerHTML = "Hora: " + dados.hora;
-                
                 }
             };
             xmlhttp.open("GET", "dados.php", true);
             xmlhttp.send();
         }
 
-        setInterval(obterInformacoesDinamicas, 1000); 
+        setInterval(obterInformacoesDinamicas, 1000);
     </script>
 </head>
 <body>
-    <h1>Informações Dinâmicas</h1>
-    <p id="ip"></p>
-    <p id="data"></p>
-    <p id="hora"></p>
-    <!-- Você pode adicionar mais elementos HTML para mostrar outras informações dinâmicas -->
+    <div class="info-container">
+        <h1>Informações Dinâmicas</h1>
+        <div class="info-item" id="ip"></div>
+        <div class="info-item" id="data"></div>
+        <div class="info-item" id="hora"></div>
+    </div>
 </body>
 </html>
